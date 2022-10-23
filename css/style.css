@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: "Poppins", "Serif";
+    font-family: "Poppins", Serif;
     background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
@@ -39,9 +39,10 @@ header{
     
 }
 
-.nav_links a:visited {
-    color: #A020F0;
-    text-decoration: none;
+
+.nav_links a:link {
+    color: blue;
+    text-decoration: underline;
 
 }
 
@@ -60,7 +61,6 @@ header{
 
 .gallery {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 
@@ -74,31 +74,29 @@ header{
 
 @media screen and (min-width: 900px) {
     header {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
         justify-content: space-between;
-        overflow: visible;
-        position: sticky;
-        top: 0;
-        left: 0;
-        scroll-behavior: smooth;
+        flex-wrap: nowrap;
     }
 
     .nav_links {
-        width: 100%;
         flex-direction: row;
-        justify-content: space-evenly;
-        justify-content: flex-end;
+        justify-items: right;
 
     }
 
     .pricing {
-        overflow: hidden;
+        justify-content: center;
     }
 
     .card {
         flex-basis: 275px;
-        z-index: -99;
-        overflow: hidden;
+        justify-content: center;
+    }
+    body > header{
+        position:sticky;
+        top:0;
     }
 }
 
@@ -111,33 +109,27 @@ header{
 @media print {
     body {
         background-image: none;
-        font-family: 'Arial', Helvetica;
+        font-family: 'Arial', helvetica;
     }
 
     header {
         display: block;
     }
 
+    nav{
+        width: 100%;
+    }
     nav, .nav_links {
         width: 100%;
+        display: flex;
         flex-direction: row;
-        justify-content: center;
         justify-content: space-evenly;
-
     }
 
-    header img#logo {
-        display: block;
-        margin-left: auto;
-        margin-right: auto; 
-
-    }
-
+ 
     .pricing {
-        flex-direction: row;
         flex-wrap: nowrap;
         align-items: flex-end;
-        overflow: visible;
     }
 
     .card {
@@ -147,5 +139,8 @@ header{
 
     .gallery, #gallery {
         display: none; 
+    }
+    .card ul li:nth-child(2):after{
+        content:"👍";
     }
 }
